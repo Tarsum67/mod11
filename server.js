@@ -1,6 +1,6 @@
 const express = require('express');
 const homeRouter = require('./routes/home');
-const notesRouter = require('./routes/api'); // Assuming you have a separate file for notes routes
+const apiRouter = require('./routes/api'); // Assuming you have a separate file for notes routes
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Routes
-app.use('/api/', notesRouter); // Use a unique path for notes routes
+app.use('/api/', apiRouter); // Use a unique path for notes routes
 app.use('/', homeRouter);
 
 // Start the server
